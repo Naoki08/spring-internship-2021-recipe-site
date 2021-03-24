@@ -8,10 +8,12 @@ import { getRecipeById } from "../../lib/recipe";
 
 import { css } from '@emotion/react';
 
-import type  { Recipe } from "../../lib/recipe";
+import { Head } from '../../component/head';
+import { SearchBar } from '../../component/searchBar';
 import { Steps } from "../../component/steps";
 import { Ingredients } from "../../component/ingredients";
-import { SearchBar } from '../../component/searchBar';
+
+import type  { Recipe } from "../../lib/recipe";
 
 const main = css`
   background-color: #FFF9E6;
@@ -42,9 +44,13 @@ type Props = {
 
 const RecipePage: NextPage<Props> = (props) => {
   const recipe = props.recipe;
-
   return (
     <div css={main}>
+      <Head
+        title={props.recipe.title + 'のレシピページ'}
+        description={props.recipe.description}
+        image={props.recipe.image_url}
+      />
       <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
       <SearchBar />
       <hr />

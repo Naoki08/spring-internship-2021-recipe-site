@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { css } from '@emotion/react';
 
 import { getNewRecipes } from "../lib/recipe";
+
+import { Head } from '../component/head';
 import { SearchBar } from '../component/searchBar';
 import { RecipeLink } from '../component/recipeLink';
 
@@ -40,6 +42,10 @@ const TopPage: NextPage<Props> = (props) => {
 
     return (
         <div css={main}>
+            <Head
+                title={'レシピサイト'}
+                description={'インターンで制作したレシピサイトです'}
+            />
             <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
             <SearchBar />
             <hr />

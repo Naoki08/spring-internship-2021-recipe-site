@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { css } from '@emotion/react';
 
 import { getRecipesByKeyword } from "../lib/recipe";
+import { Head } from '../component/head';
 import { SearchBar } from '../component/searchBar';
 import { RecipeLink } from '../component/recipeLink';
 
@@ -44,6 +45,10 @@ const SearchPage: NextPage<Props> = (props) => {
 
     return (
         <div css={main}>
+            <Head
+                title={router.query.keyword + 'の検索結果'}
+                description={router.query.keyword + 'の検索結果です'}
+            />
             <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
             <SearchBar />
             <hr />
