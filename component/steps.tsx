@@ -1,4 +1,12 @@
+/** @jsxImportSource @emotion/react */
+
 import { FC } from "react";
+
+import { css } from '@emotion/react';
+
+const list_title = css`
+    background-color: rgb(255, 239, 239);
+`
 
 type Props = {
     steps: string[];
@@ -14,9 +22,9 @@ export const Steps: FC<Props> = (props) => {
     }
     return (
         <ol className="list-group">
-            <div id="list-title">作り方</div>
+            <div css={list_title}>作り方</div>
             {props.steps.map((step, i) => (
-                <li className="list-group-item" key={i}>{step}</li>
+                <li className="list-group-item" key={i}>{i+1}：{step}</li>
             ))}
         </ol>
     )

@@ -1,21 +1,40 @@
-import { useRouter } from 'next/router'
+/** @jsxImportSource @emotion/react */
 
-import { getRecipesByKeyword, getNewRecipes, Recipe } from "../lib/recipe"
-import { SearchBar } from '../component/searchBar'
-import { RecipeLink } from '../component/recipeLink'
-
-import type { Response } from "../lib/recipe";
-import React, { useEffect, useState, FC } from "react";
-import { resourceUsage } from 'node:process';
-import Link from 'next/link';
 import { GetServerSideProps, NextPage } from 'next';
-import { RSA_NO_PADDING } from 'node:constants';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
+import { css } from '@emotion/react';
+
+import { getRecipesByKeyword } from "../lib/recipe";
+import { SearchBar } from '../component/searchBar';
+import { RecipeLink } from '../component/recipeLink';
+
+import type { Response } from "../lib/recipe";;
+
+
+const main = css`
+    background-color: #FFF9E6;
+`
+
+const h1 = css`
+    background-color: orange;
+    text-align: center;
+`
+const tab_btn = css`
+    margin: 10px;
+`
+const prev_style = css`
+`
+const next_style = css`
+    float: right;
+`
 
 type Props = {
     response: Response
 }
 
-const TopPage: NextPage<Props> = (props) => {
+const SearchPage: NextPage<Props> = (props) => {
     const recipes = props.response.recipes;
     let prev, next : string;
     if(props.response.links.prev !== undefined) prev = props.response.links.prev.split("=").pop();
@@ -24,35 +43,65 @@ const TopPage: NextPage<Props> = (props) => {
 
 
     return (
-        <div>
-            <h1>SEARCH PAGE</h1>
+        <div css={main}>
+            <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
             <SearchBar />
+            <hr />
+            <div css={tab_btn}>
+                {
+                    (() => {
+                        if(prev !== undefined) return <Link
+                        href = {{
+                            pathname: '/search',
+                            query: {keyword: router.query.keyword, page: prev}
+                        }}
+                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>PREV</button>
+                    })()
+                }
+                {
+                    (() => {
+                        if(next !== undefined) return <Link
+                        href = {{
+                            pathname: '/search',
+                            query: {keyword: router.query.keyword, page: next}
+                        }}
+                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>NEXT</button>
+                    })()
+                }
+            </div>
             {
                 recipes.map((r, i) => (
                     <div key={i}><RecipeLink recipe={r} /></div>
                 ))
             }
-            {
-                (() => {
-                    if(prev !== undefined) return <Link
-                    href = {{
-                        pathname: '/search',
-                        query: {keyword: router.query.keyword, page: prev}
-                    }}
-                    >PREV</Link>
-                })()
-            }
-            {
-                (() => {
-                    if(next !== undefined) return <Link
-                    href = {{
-                        pathname: '/search',
-                        query: {keyword: router.query.keyword, page: next}
-                    }}
-                    >NEXT</Link>
-                })()
-            }
-        </div>
+            <hr />
+            <div css={tab_btn}>
+                {
+                    (() => {
+                        if(prev !== undefined) return <Link
+                        href = {{
+                            pathname: '/search',
+                            query: {keyword: router.query.keyword, page: prev}
+                        }}
+                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>PREV</button>
+                    })()
+                }
+                {
+                    (() => {
+                        if(next !== undefined) return <Link
+                        href = {{
+                            pathname: '/search',
+                            query: {keyword: router.query.keyword, page: next}
+                        }}
+                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>NEXT</button>
+                    })()
+                }
+            </div>
+            </div>
     )
 };
 
@@ -86,4 +135,4 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     }
 }
 
-export default TopPage;
+export default SearchPage;
