@@ -26,10 +26,15 @@ export const SearchBar: FC<Props> = (props) => {
 
     return (
         <div css={main}>
-            <div className="input-group">
-                <button className="btn btn-primary" onClick={handleClick}>検索</button>
-                <input type="text" className="form-control" value={searchWord} onChange={e => setSearchWord(e.target.value)} />
-            </div>
+            <form onSubmit={e => {
+                handleClick();
+                e.preventDefault();
+            }}>
+                <div className="input-group">
+                    <button className="btn btn-primary" onClick={handleClick}>検索</button>
+                    <input type="text" className="form-control" value={searchWord} onChange={e => setSearchWord(e.target.value)} />
+                </div>
+            </form>
         </div>
     )
 };
