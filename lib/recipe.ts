@@ -1,5 +1,5 @@
 import { env } from "node:process";
-import { RecipeLink } from "../component/recipeLink";
+import { RecipeLink } from "../components/recipeLink";
 
 export type Recipe = {
     id: number; // レシピID

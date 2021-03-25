@@ -7,9 +7,9 @@ import Link from 'next/link';
 import { css } from '@emotion/react';
 
 import { getRecipesByKeyword } from "../lib/recipe";
-import { Head } from '../component/head';
-import { SearchBar } from '../component/searchBar';
-import { RecipeLink } from '../component/recipeLink';
+import { Head } from '../components/head';
+import { SearchBar } from '../components/searchBar';
+import { RecipeLink } from '../components/recipeLink';
 
 import type { Response } from "../lib/recipe";;
 

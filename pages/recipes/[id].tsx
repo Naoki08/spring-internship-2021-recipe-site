@@ -8,10 +8,10 @@ import { getRecipeById } from "../../lib/recipe";
 
 import { css } from '@emotion/react';
 
-import { Head } from '../../component/head';
-import { SearchBar } from '../../component/searchBar';
-import { Steps } from "../../component/steps";
-import { Ingredients } from "../../component/ingredients";
+import { Head } from '../../components/head';
+import { SearchBar } from '../../components/searchBar';
+import { Steps } from "../../components/steps";
+import { Ingredients } from "../../components/ingredients";
 
 import type  { Recipe } from "../../lib/recipe";
 
