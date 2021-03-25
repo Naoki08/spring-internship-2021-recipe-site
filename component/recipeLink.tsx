@@ -9,16 +9,20 @@ import type { Recipe } from "../lib/recipe";
 
 const main = css`
     max-width: 100%;
-    background-color: rgb(255, 177, 132);
     border: 5px rgb(235, 126, 126);
-    border-style: inset;
     height: 150px;
     margin: 10px;
+`
+const btn = css`
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 177, 132);
 `
 const img_style = css`
     width: 120px;
     height: 120px;
     margin: 6px;
+    border: 2px solid #000000;
 `
 const alt_box_style = css`
     position: relative;
@@ -40,11 +44,15 @@ const flex = css`
     display: flex;
 `
 const title = css`
-    text-align: center;
+    text-align: left;
+    font-size: 11pt;
     font-weight: bold;
+    margin: 5px;
 `
 const description = css`
+    text-align: left;
     font-size: 9pt;
+    margin: 5px;
 `
 
 type Props = {
@@ -55,6 +63,7 @@ export const RecipeLink: FC<Props> = (props) => {
     return (
         <div css={main}>
             <Link href="/recipes/[id]" as={`/recipes/${props.recipe.id}`}>
+                <button css={btn}>
                 <div css={flex}>
                     {
                         (() => {
@@ -67,6 +76,7 @@ export const RecipeLink: FC<Props> = (props) => {
                         <p css={description}>{ props.recipe.description }</p>
                     </div>
                 </div>
+                </button>
             </Link>
         </div>
     )
