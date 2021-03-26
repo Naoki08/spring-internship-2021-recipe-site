@@ -1,28 +1,17 @@
 /** @jsxImportSource @emotion/react */
 
 import { GetServerSideProps, NextPage } from 'next';
-import Link from 'next/link';
-
 
 import { getRecipeById } from "../../lib/recipe";
 
 import { css } from '@emotion/react';
 
 import { Head } from '../../components/head';
-import { SearchBar } from '../../components/searchBar';
 import { Steps } from "../../components/steps";
 import { Ingredients } from "../../components/ingredients";
 
 import type  { Recipe } from "../../lib/recipe";
 
-const main = css`
-  background-color: #FFF9E6;
-`
-
-const h1 = css`
-  background-color: orange;
-  text-align: center;
-`
 const img_alt_style = css`
   background-color: gray;
   max-width: 100%;
@@ -45,14 +34,12 @@ type Props = {
 const RecipePage: NextPage<Props> = (props) => {
   const recipe = props.recipe;
   return (
-    <div css={main}>
+    <div>
       <Head
         title={props.recipe.title + 'のレシピページ'}
         description={props.recipe.description}
         image={props.recipe.image_url}
       />
-      <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
-      <SearchBar />
       <hr />
       <h2>{ recipe?.title }</h2>
       {recipe?.image_url ? <img src={ recipe.image_url } className="img-fluid" alt="picture" /> : <div css={img_alt_style}><div css={img_alt_text_style}>NO IMAGE</div></div>}

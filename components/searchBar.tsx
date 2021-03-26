@@ -2,13 +2,17 @@
 
 import { FC, useState } from "react";
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 import { css } from '@emotion/react';
 
 const main = css`
-    margin: 5px;
+    margin: 10px;
 `
-
+const h1 = css`
+    background-color: orange;
+    text-align: center;
+`
 type Props = {
 }
 
@@ -25,16 +29,19 @@ export const SearchBar: FC<Props> = (props) => {
     }
 
     return (
-        <div css={main}>
-            <form onSubmit={e => {
-                handleClick();
-                e.preventDefault();
-            }}>
-                <div className="input-group">
-                    <button className="btn btn-primary" onClick={handleClick}>検索</button>
-                    <input type="text" className="form-control" value={searchWord} onChange={e => setSearchWord(e.target.value)} />
-                </div>
-            </form>
+        <div>
+            <Link href='/'><h1 css={h1}>レシピサイト</h1></Link>
+            <div css={main}>
+                <form onSubmit={e => {
+                    handleClick();
+                    e.preventDefault();
+                }}>
+                    <div className="input-group">
+                        <button className="btn btn-primary" onClick={handleClick}>検索</button>
+                        <input type="text" className="form-control" value={searchWord} onChange={e => setSearchWord(e.target.value)} />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 };

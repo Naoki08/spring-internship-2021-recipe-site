@@ -8,20 +8,10 @@ import { css } from '@emotion/react';
 
 import { getRecipesByKeyword } from "../lib/recipe";
 import { Head } from '../components/head';
-import { SearchBar } from '../components/searchBar';
 import { RecipeLink } from '../components/recipeLink';
 
 import type { Response } from "../lib/recipe";;
 
-
-const main = css`
-    background-color: #FFF9E6;
-`
-
-const h1 = css`
-    background-color: orange;
-    text-align: center;
-`
 const tab_btn = css`
     margin: 10px;
 `
@@ -44,13 +34,11 @@ const SearchPage: NextPage<Props> = (props) => {
 
 
     return (
-        <div css={main}>
+        <div>
             <Head
                 title={router.query.keyword + 'の検索結果'}
                 description={router.query.keyword + 'の検索結果です'}
             />
-            <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
-            <SearchBar />
             <hr />
             <div css={tab_btn}>
                 {

@@ -8,19 +8,10 @@ import { css } from '@emotion/react';
 import { getNewRecipes } from "../lib/recipe";
 
 import { Head } from '../components/head';
-import { SearchBar } from '../components/searchBar';
 import { RecipeLink } from '../components/recipeLink';
 
 import type { Response } from "../lib/recipe";
 
-const main = css`
-    background-color: #FFF9E6;
-`
-
-const h1 = css`
-    background-color: orange;
-    text-align: center;
-`
 const tab_btn = css`
     margin: 10px;
 `
@@ -41,13 +32,11 @@ const TopPage: NextPage<Props> = (props) => {
     if(props.response.links.next !== undefined) next = props.response.links.next.split("=").pop();
 
     return (
-        <div css={main}>
+        <div>
             <Head
                 title={'レシピサイト'}
                 description={'インターンで制作したレシピサイトです'}
             />
-            <Link href="/"><h1 css={h1}>レシピサイト</h1></Link>
-            <SearchBar />
             <hr />
             <div css={tab_btn}>
                 {
