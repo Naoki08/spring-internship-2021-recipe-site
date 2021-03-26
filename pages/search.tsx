@@ -10,7 +10,12 @@ import { getRecipesByKeyword } from "../lib/recipe";
 import { Head } from '../components/head';
 import { RecipeLink } from '../components/recipeLink';
 
-import type { Response } from "../lib/recipe";;
+import type { Response } from "../lib/recipe";import { route } from 'next/dist/next-server/server/router';
+;
+
+const h2 = css`
+    text-align: center;
+`
 
 const tab_btn = css`
     margin: 10px;
@@ -40,6 +45,7 @@ const SearchPage: NextPage<Props> = (props) => {
                 description={router.query.keyword + 'の検索結果です'}
             />
             <hr />
+            <h2 css={h2}>{router.query.keyword}の検索結果</h2>
             <div css={tab_btn}>
                 {
                     (() => {
