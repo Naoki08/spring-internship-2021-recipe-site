@@ -46,8 +46,8 @@ const TopPage: NextPage<Props> = (props) => {
                             pathname: '/',
                             query: {page: prev}
                         }}
-                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
-                            else return <button className="btn btn-secondary disabled" css={prev_style}>PREV</button>
+                        ><button className="btn btn-secondary" css={prev_style}>前へ</button></Link>
+                            else return <button className="btn btn-secondary disabled" css={prev_style}>前へ</button>
                     })()
                 }
                 {
@@ -57,8 +57,8 @@ const TopPage: NextPage<Props> = (props) => {
                             pathname: '/',
                             query: {page: next}
                         }}
-                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
-                        else return <button className="btn btn-secondary disabled" css={prev_style}>NEXT</button>
+                        ><button className="btn btn-secondary" css={next_style}>次へ</button></Link>
+                        else return <button className="btn btn-secondary disabled" css={prev_style}>次へ</button>
                     })()
                 }
             </div>
@@ -76,8 +76,8 @@ const TopPage: NextPage<Props> = (props) => {
                             pathname: '/',
                             query: {page: prev}
                         }}
-                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
-                        else return <button className="btn btn-secondary disabled" css={prev_style}>PREV</button>
+                        ><button className="btn btn-secondary" css={prev_style}>前へ</button></Link>
+                        else return <button className="btn btn-secondary disabled" css={prev_style}>前へ</button>
                     })()
                 }
                 {
@@ -87,8 +87,8 @@ const TopPage: NextPage<Props> = (props) => {
                             pathname: '/',
                             query: {page: next}
                         }}
-                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
-                        else return <button className="btn btn-secondary disabled" css={prev_style}>NEXT</button>
+                        ><button className="btn btn-secondary" css={next_style}>次へ</button></Link>
+                        else return <button className="btn btn-secondary disabled" css={prev_style}>次へ</button>
                     })()
                 }
             </div>

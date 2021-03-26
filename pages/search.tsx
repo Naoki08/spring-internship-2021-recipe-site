@@ -54,8 +54,8 @@ const SearchPage: NextPage<Props> = (props) => {
                             pathname: '/search',
                             query: {keyword: router.query.keyword, page: prev}
                         }}
-                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
-                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>PREV</button>
+                        ><button className="btn btn-secondary" css={prev_style}>前へ</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>前へ</button>
                     })()
                 }
                 {
@@ -65,8 +65,8 @@ const SearchPage: NextPage<Props> = (props) => {
                             pathname: '/search',
                             query: {keyword: router.query.keyword, page: next}
                         }}
-                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
-                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>NEXT</button>
+                        ><button className="btn btn-secondary" css={next_style}>次へ</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>次へ</button>
                     })()
                 }
             </div>
@@ -84,8 +84,8 @@ const SearchPage: NextPage<Props> = (props) => {
                             pathname: '/search',
                             query: {keyword: router.query.keyword, page: prev}
                         }}
-                        ><button className="btn btn-secondary" css={prev_style}>PREV</button></Link>
-                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>PREV</button>
+                        ><button className="btn btn-secondary" css={prev_style}>前へ</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>前へ</button>
                     })()
                 }
                 {
@@ -95,8 +95,8 @@ const SearchPage: NextPage<Props> = (props) => {
                             pathname: '/search',
                             query: {keyword: router.query.keyword, page: next}
                         }}
-                        ><button className="btn btn-secondary" css={next_style}>NEXT</button></Link>
-                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>NEXT</button>
+                        ><button className="btn btn-secondary" css={next_style}>次へ</button></Link>
+                        else return <button className="btn btn-outline-secondary disabled" css={prev_style}>次へ</button>
                     })()
                 }
             </div>
